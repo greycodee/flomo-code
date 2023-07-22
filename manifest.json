@@ -3,11 +3,17 @@
   "version": "1.0",
   "manifest_version": 3,
   "description": "This is my first Chrome extension!",
+  "permissions": [
+    "nativeMessaging"
+  ],
   "content_scripts": [
     {
       "matches": ["https://v.flomoapp.com/*"],
       "js": ["content.js","highlight.min.js"],
       "css": ["highlight.min.css"]
     }
-  ]
+  ],
+  "background": {
+    "service_worker": "service-worker.js"
+  }
 }
