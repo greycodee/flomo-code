@@ -6,7 +6,8 @@ Flomo Code 是一款 Chrome 扩展程序，为您的 Flomo 笔记提供代码语
 
 ## 安装
 
-您可以从 [Release](https://github.com/greycodee/flomo-code/releases/) 下载安装 Flomo Code。
+您可以从 [Release](https://github.com/greycodee/flomo-code/releases/) 下载安装 flomo-code.crx
+，然后拖入 Chrome 扩展程序页面。
 
 ## 使用
 
