@@ -25,13 +25,10 @@ window.onload = function () {
   hljsbtn.style.alignItems = "center";
 
   hljsbtn.addEventListener("click", () => {
-    console.log("点击了");
     const memos = document.getElementsByClassName("richText");
     const memos_array = Array.from(memos);
-    console.log(memos_array.length);
     memos_array.forEach((memo) => {
       let children = memo.children;
-      console.log(children);
       const memo_p_array = Array.from(children);
       let languageFlag = false;
       let codeContentArr = [];
