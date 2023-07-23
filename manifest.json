@@ -1,19 +1,23 @@
 {
-  "name": "My Chrome Extension",
+  "name": "flomo code",
   "version": "1.0",
   "manifest_version": 3,
-  "description": "This is my first Chrome extension!",
-  "permissions": [
-    "nativeMessaging"
-  ],
+  "description": "flomo md代码块高亮插件",
+  "icons": {
+
+    "128": "images/flomo128.png"
+  },
   "content_scripts": [
     {
       "matches": ["https://v.flomoapp.com/*"],
-      "js": ["content.js","highlight.min.js"],
-      "css": ["highlight.min.css"]
+      "js": ["content.js","include/highlight.min.js"],
+      "css": ["include/highlight.min.css"]
     }
   ],
-  "background": {
-    "service_worker": "service-worker.js"
-  }
+  "web_accessible_resources": [
+    {
+      "resources": ["images/*"],
+      "matches": ["https://v.flomoapp.com/*"]
+    }
+  ]
 }
