@@ -20,13 +20,7 @@
 
     "128": "images/flomo128.png"
   },
-  "content_scripts": [
-    {
-      "matches": ["https://v.flomoapp.com/*","https://flomoapp.com/*"],
-      "js": ["content.js","include/highlight.min.js"]
 
-    }
-  ],
   "web_accessible_resources": [
     {
       "resources": ["images/*"],

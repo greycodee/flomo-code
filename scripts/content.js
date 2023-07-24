@@ -17,7 +17,7 @@ window.onload = function () {
   hljsbtn.style.color = "#fff";
   hljsbtn.style.cursor = "pointer";
   hljsbtn.style.position = "fixed";
-  hljsbtn.style.bottom = "60px";
+  hljsbtn.style.bottom = "80px";
   hljsbtn.style.right = "30px";
   hljsbtn.style.zIndex = "9999";
   hljsbtn.style.display = "flex";
@@ -72,14 +72,5 @@ window.onload = function () {
   });
   document.body.appendChild(hljsbtn);
 
-  chrome.scripting.insertCSS({
-    target: {
-        tabId: tab.id,
-    },
-    files: ['include/theme/stackoverflow-light.css']
-  }).then(()=>{
-    console.log("insert css success");
-    }).catch((err)=>{
-        console.log("insert css error",err);
-    });
+
 };
