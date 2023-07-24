@@ -71,4 +71,15 @@ window.onload = function () {
     hljs.highlightAll();
   });
   document.body.appendChild(hljsbtn);
+
+  chrome.scripting.insertCSS({
+    target: {
+        tabId: tab.id,
+    },
+    files: ['include/theme/stackoverflow-light.css']
+  }).then(()=>{
+    console.log("insert css success");
+    }).catch((err)=>{
+        console.log("insert css error",err);
+    });
 };

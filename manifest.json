@@ -3,21 +3,39 @@
   "version": "1.0",
   "manifest_version": 3,
   "description": "flomo md代码块高亮插件",
+  "action":{
+    "default_title":"选择主题",
+    "default_popup": "popup/popup.html"
+  },
+  "permissions": [
+    "storage",
+    "scripting",
+    "tabs",
+    "activeTab"
+  ],
+  "background": {
+    "service_worker": "service-worker.js"
+  },
   "icons": {
 
     "128": "images/flomo128.png"
   },
   "content_scripts": [
     {
-      "matches": ["https://v.flomoapp.com/*"],
-      "js": ["content.js","include/highlight.min.js"],
-      "css": ["include/highlight.min.css"]
+      "matches": ["https://v.flomoapp.com/*","https://flomoapp.com/*"],
+      "js": ["content.js","include/highlight.min.js"]
+
     }
   ],
   "web_accessible_resources": [
     {
       "resources": ["images/*"],
-      "matches": ["https://v.flomoapp.com/*"]
+      "matches": ["https://v.flomoapp.com/*","https://flomoapp.com/*"]
     }
-  ]
+  ],
+  "host_permissions": [
+    "https://v.flomoapp.com/*",
+    "https://flomoapp.com/*"
+  ],
+  "options_page": "options/options.html"
 }
