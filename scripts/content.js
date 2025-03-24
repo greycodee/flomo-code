@@ -24,7 +24,8 @@ window.onload = function () {
     hljsbtn.style.justifyContent = 'center';
     hljsbtn.style.alignItems = 'center';
 
-    hljsbtn.addEventListener('click', () => {
+    // 创建高亮代码函数
+    function highlightCodeBlocks() {
         const memos = document.getElementsByClassName('richText');
         const memos_array = Array.from(memos);
         memos_array.forEach((memo) => {
@@ -129,6 +130,20 @@ window.onload = function () {
             }
         });
         hljs.highlightAll();
+    }
+
+    // 按钮点击事件
+    hljsbtn.addEventListener('click', highlightCodeBlocks);
+
+    // 发送消息到background script以启动debugger监听
+    chrome.runtime.sendMessage({ action: 'startDebugging' });
+
+    // 监听来自background script的消息
+    chrome.runtime.onMessage.addListener((message) => {
+        if (message.action === 'consoleMessageDetected' && message.text.includes('getMemos:')) {
+            highlightCodeBlocks();
+        }
     });
+
     document.body.appendChild(hljsbtn);
 };
