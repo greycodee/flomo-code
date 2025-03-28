@@ -134,7 +134,31 @@ function highlightCodeBlocks() {
                 continue;
             } else {
                 if (languageFlag) {
-                    codeContentArr.push(memo_p_array[i].innerHTML);
+                    // 处理内容中的a标签
+                    let content = memo_p_array[i].innerHTML;
+
+                    // 创建临时DOM元素来解析HTML
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = content;
+
+                    // 查找所有a标签
+                    const links = tempDiv.querySelectorAll('a');
+                    links.forEach((link) => {
+                        // 获取href属性
+                        const href = link.getAttribute('href');
+                        if (href) {
+                            // 替换整个a标签为@+href
+                            const linkText = `${href}`;
+                            // 创建文本节点
+                            const textNode = document.createTextNode(linkText);
+                            // 替换a标签为文本节点
+                            link.parentNode.replaceChild(textNode, link);
+                        }
+                    });
+
+                    // 获取处理后的内容
+                    content = tempDiv.innerHTML;
+                    codeContentArr.push(content);
                     memo.removeChild(memo_p_array[i]);
                 }
             }
