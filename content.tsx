@@ -135,6 +135,8 @@ function highlightCodeBlocks() {
       }
     }
   })
+  // Configure highlight.js to ignore unescaped HTML warning
+  hljs.configure({ ignoreUnescapedHTML: true })
   hljs.highlightAll()
 }
 

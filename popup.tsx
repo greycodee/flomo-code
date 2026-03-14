@@ -37,6 +37,9 @@ function IndexPopup() {
   // Apply highlight to the preview block on render
   useEffect(() => {
     if (codeRef.current) {
+      // Configure highlight.js to ignore unescaped HTML warning
+      hljs.configure({ ignoreUnescapedHTML: true })
+      
       // We must reset the DOM in case highlight.js already ran
       codeRef.current.removeAttribute("data-highlighted")
       codeRef.current.className = "language-javascript"
