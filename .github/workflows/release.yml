@@ -5,9 +5,14 @@ on:
     tags:
       - 'v*' # Trigger on tags starting with v, e.g., v1.0.0
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout Code
@@ -35,6 +40,5 @@ jobs:
         with:
           files: |
             build/*.zip
-          generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
